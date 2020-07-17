@@ -9,6 +9,9 @@ const geocode = require('./utils/geocode')
 
 const app = express()
 
+//for heroku to help determine port online
+const port = process.env.PORT || 3000   // the first will work on heroku is for localhost
+
 //Path  creation for Express confing 
 const publicDirectory = path.join(__dirname,'../public')
 const viewsPath = path.join(__dirname,'../templates/views') // path creation for hbs
@@ -105,6 +108,6 @@ app.get('*',(req,res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('Server is up on port:3000')
+app.listen(port, () => {
+    console.log('Server is up on port:',port)
 })// starts the server common development port 
